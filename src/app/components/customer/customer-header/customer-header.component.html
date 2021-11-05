@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark menu-always-at-top">
+    <a class="navbar-brand" routerLink=".">Banking UI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mr-auto">					
+            <li ngbDropdown class="nav-item">
+                <a href (click)="false" class="nav-link" ngbDropdownToggle>Account</a>
+                <div ngbDropdownMenu>
+                  <a ngbDropdownItem routerLink=".">Account Details</a>
+                  <a ngbDropdownItem routerLink="./updatePassword">Update Password</a>
+                  <a ngbDropdownItem routerLink="./deleteAccount">Delete Account</a>
+                </div>
+            </li>
+            <li ngbDropdown class="nav-item">
+                <a href (click)="false" class="nav-link" ngbDropdownToggle>Transaction</a>
+                <div ngbDropdownMenu>
+                  <a ngbDropdownItem routerLink="./newTransaction">New Transaction</a>
+                  <a ngbDropdownItem routerLink="./transactionHistory">Transaction History</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a id="logoutButton" class="nav-link" >Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
