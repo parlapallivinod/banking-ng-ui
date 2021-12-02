@@ -1,19 +1,47 @@
 <div class="container">
-    <form novalidate id="loginForm">
+    <form novalidate id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h3 class="h3 my-4 font-weight-normal text-center">Login</h3>
         
         <div class="form-group col-md-6 offset-md-3">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username"/>
+            <input type="text" class="form-control" id="username" formControlName="username"/>
+            <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert alert-danger">
+                <div *ngIf="username?.errors?.['required']">
+                    Username is required.
+                </div>
+                <div *ngIf="username?.errors?.['minlength']">
+                    Username must be at least 5 characters long.
+                </div>
+                <div *ngIf="username?.errors?.['maxlength']">
+                    Username must be at maximux 16 characters long.
+                </div>
+            </div>
         </div>
         
         <div class="form-group col-md-6 offset-md-3">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password"/>
+            <input type="password" class="form-control" id="password" formControlName="password"/>
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+                <div *ngIf="password?.errors?.['required']">
+                    Password is required.
+                </div>
+                <div *ngIf="password?.errors?.['minlength']">
+                    Password must be at least 5 characters long.
+                </div>
+                <div *ngIf="password?.errors?.['maxlength']">
+                    Password must be at maximux 16 characters long.
+                </div>
+            </div>
         </div>
         
         <div class="form-group col-md-6 offset-md-3">
             <button type="submit" id="loginButton" class="btn btn-primary col-md-12">Login</button>
         </div>
+        
+        <div>
+            <p>data: {{ loginForm.value | json }}</p>
+            <p>Form Status: {{ loginForm.status }}</p>
+        </div>
+        
     </form>
 </div>
