@@ -1,7 +1,6 @@
 <div class="container">
     <form novalidate id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h3 class="h3 my-4 font-weight-normal text-center">Login</h3>
-        
+        <h3 class="h3 my-4 font-weight-normal text-center">Login</h3>        
         <div class="form-group col-md-6 offset-md-3">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" formControlName="username"/>
@@ -35,13 +34,13 @@
         </div>
         
         <div class="form-group col-md-6 offset-md-3">
-            <button type="submit" id="loginButton" class="btn btn-primary col-md-12">Login</button>
+            <button type="submit" id="loginButton" class="btn btn-primary col-md-12" [disabled]="!loginForm.valid">Login</button>
         </div>
-        
+        <!--
         <div>
             <p>data: {{ loginForm.value | json }}</p>
             <p>Form Status: {{ loginForm.status }}</p>
         </div>
-        
+        -->
     </form>
 </div>

@@ -1,0 +1,8 @@
+<div id="message">
+    <div *ngIf="bs.getMessage()" class="alert {{ bs.getMessageType()}} alert-dismissible fade show" role="alert">
+        {{bs.getMessage()}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="bs.clearMessage()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+</div>

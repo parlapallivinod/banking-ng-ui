@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,8 @@ import { UpdatePasswordComponent } from './components/customer/update-password/u
 import { CustomerComponent } from './components/customer/customer/customer.component';
 import { PublicHeaderComponent } from './components/public/public-header/public-header.component';
 import { CustomerHeaderComponent } from './components/customer/customer-header/customer-header.component';
+import { LoadingSpinnerComponent } from './components/common/loading-spinner/loading-spinner.component';
+import { MessageComponent } from './components/common/message/message.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,12 @@ import { CustomerHeaderComponent } from './components/customer/customer-header/c
     NewTransactionComponent,
     TransactionHistoryComponent,
     UpdatePasswordComponent,
+    LoadingSpinnerComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule

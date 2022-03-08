@@ -1,24 +1,25 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark menu-always-at-top">
     <a class="navbar-brand" routerLink=".">Banking UI</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="mainNavbar">
+    <div class="navbar-collapse" [ngbCollapse]="isMenuCollapsed">
         <ul class="navbar-nav mr-auto">					
             <li ngbDropdown class="nav-item">
                 <a href (click)="false" class="nav-link" ngbDropdownToggle>Account</a>
                 <div ngbDropdownMenu>
-                  <a ngbDropdownItem routerLink=".">Account Details</a>
-                  <a ngbDropdownItem routerLink="./updatePassword">Update Password</a>
-                  <a ngbDropdownItem routerLink="./deleteAccount">Delete Account</a>
+                  <a ngbDropdownItem routerLink="." (click)="isMenuCollapsed = true">Account Details</a>
+                  <a ngbDropdownItem routerLink="./updatePassword" (click)="isMenuCollapsed = true">Update Password</a>
+                  <a ngbDropdownItem routerLink="./deleteAccount" (click)="isMenuCollapsed = true">Delete Account</a>
                 </div>
             </li>
             <li ngbDropdown class="nav-item">
                 <a href (click)="false" class="nav-link" ngbDropdownToggle>Transaction</a>
                 <div ngbDropdownMenu>
-                  <a ngbDropdownItem routerLink="./newTransaction">New Transaction</a>
-                  <a ngbDropdownItem routerLink="./transactionHistory">Transaction History</a>
+                  <a ngbDropdownItem routerLink="./newTransaction" (click)="isMenuCollapsed = true">New Transaction</a>
+                  <a ngbDropdownItem routerLink="./transactionHistory" (click)="isMenuCollapsed = true">Transaction History</a>
                 </div>
             </li>
             <li class="nav-item">
